@@ -1,0 +1,1 @@
+﻿# Copy-Item C:\Users\danie\OneDrive\Desktop\PowershellScripts\ewok.txt -Destination C:\Users\danie\OneDrive\Desktop\PowershellScripts\deathstar

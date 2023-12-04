@@ -1,0 +1,13 @@
+
+Name                              Category  Module                    Synopsis
+----                              --------  ------                    --------
+about_Built-in_Functions          HelpFile                            
+about_Functions                   HelpFile                            
+about_Functions_Advanced          HelpFile                            
+about_Functions_Advanced_Methods  HelpFile                            
+about_Functions_Advanced_Paramet… HelpFile                            
+about_Functions_Argument_Complet… HelpFile                            
+about_Functions_CmdletBindingAtt… HelpFile                            
+about_Functions_OutputTypeAttrib… HelpFile                            
+about_PSReadLine_Functions        HelpFile                            
+

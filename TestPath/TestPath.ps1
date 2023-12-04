@@ -1,0 +1,1 @@
+﻿# Test-Path "C:\Users\danie\OneDrive\Desktop\PowershellScripts\deathstar\forcewithwho.txt"

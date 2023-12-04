@@ -1,0 +1,34 @@
+
+NAME
+    Out-File
+    
+SYNOPSIS
+    Sends output to a file.
+    
+    
+SYNTAX
+    Out-File [-FilePath] <System.String> [[-Encoding] {ASCII | BigEndianUnicode | BigEndianUTF32 | OEM | Unicode | UTF7 | UTF8 | UTF8BOM | UTF8NoBOM | UTF32}] [-Append] [-Force] [-InputObject <System.Management.Automation.PSObject>] [-NoClobber] [-NoNewline] [-Width <System.Int32>] [-Confirm] [-WhatIf] [<CommonParameters>]
+    
+    Out-File [[-Encoding] {ASCII | BigEndianUnicode | BigEndianUTF32 | OEM | Unicode | UTF7 | UTF8 | UTF8BOM | UTF8NoBOM | UTF32}] [-Append] [-Force] [-InputObject <System.Management.Automation.PSObject>] -LiteralPath <System.String> [-NoClobber] [-NoNewline] [-Width <System.Int32>] [-Confirm] [-WhatIf] [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The `Out-File` cmdlet sends output to a file. It implicitly uses PowerShell's formatting system to write to the file. The file receives the same display representation as the terminal. This means that the output may not be ideal for programmatic processing unless all input objects are strings. When you need to specify parameters for the output, use `Out-File` rather than the redirection operator (`>`). For more information about redirection, see about_Redirection (../Microsoft.PowerShell.Core/About/about_Redirection.md).
+    
+
+RELATED LINKS
+    Online Version: https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/out-file?view=powershell-7.3&WT.mc_id=ps-gethelp
+    about_Providers 
+    about_Quoting_Rules 
+    Out-Default 
+    Out-Host 
+    Out-Null 
+    Out-String 
+    Tee-Object 
+
+REMARKS
+    To see the examples, type: "Get-Help Out-File -Examples"
+    For more information, type: "Get-Help Out-File -Detailed"
+    For technical information, type: "Get-Help Out-File -Full"
+    For online help, type: "Get-Help Out-File -Online"
+

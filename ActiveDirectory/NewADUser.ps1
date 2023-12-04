@@ -1,0 +1,1 @@
+﻿# New-ADUser -Name "Harry Potter" -SamAccountName "hpotter" -UserPrincipleName "hpotter@learningenv.org" -Path "OU=Gryffindor, OU=Students, OU=HSWW, DC=learningenv, DC=org" -AccountPasswword (ConvertTo-SecureString "Gryffindor123" -AsPlainText -force) -Enabled $true

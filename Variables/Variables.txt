@@ -1,0 +1,16 @@
+
+Name                              Category  Module                    Synopsis
+----                              --------  ------                    --------
+Clear-Variable                    Cmdlet    Microsoft.PowerShell.Uti… Deletes the value of a variable.
+Get-Variable                      Cmdlet    Microsoft.PowerShell.Uti… Gets the variables in the current console.
+New-Variable                      Cmdlet    Microsoft.PowerShell.Uti… Creates a new variable.
+Remove-Variable                   Cmdlet    Microsoft.PowerShell.Uti… Deletes a variable and its value.
+Set-Variable                      Cmdlet    Microsoft.PowerShell.Uti… Sets the value of a variable. Creates the variable if one with the requested name does not exist.
+Set-DynamicParameterVariables     Function  Pester                    …
+about_Automatic_Variables         HelpFile                            
+about_Environment_Variables       HelpFile                            
+about_Preference_Variables        HelpFile                            
+about_Remote_Variables            HelpFile                            
+about_Variables                   HelpFile                            
+about_Variable_Provider           HelpFile                            
+

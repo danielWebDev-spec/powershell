@@ -1,0 +1,84 @@
+
+NAME
+    Out-File
+    
+SYNOPSIS
+    Sends output to a file.
+    
+    
+    ----------- Example 1: Send output and create a file -----------
+    
+    Get-Process | Out-File -FilePath .\Process.txt
+    Get-Content -Path .\Process.txt
+    
+    NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+     ------    -----      -----     ------      --  -- -----------
+         29    22.39      35.40      10.98   42764   9 Application
+         53    99.04     113.96       0.00   32664   0 CcmExec
+         27    96.62     112.43     113.00   17720   9 Code
+    
+    The `Get-Process` cmdlet gets the list of processes running on the local computer. The Process objects are sent down the pipeline to the `Out-File` cmdlet. `Out-File` uses the FilePath parameter and creates a file in the current directory named Process.txt . The `Get-Content` command gets content from the file and displays it in the PowerShell console.
+    -- Example 2: Prevent an existing file from being overwritten --
+    
+    Get-Process | Out-File -FilePath .\Process.txt -NoClobber
+    
+    Out-File : The file 'C:\Test\Process.txt' already exists.
+    At line:1 char:15
+    + Get-Process | Out-File -FilePath .\Process.txt -NoClobber
+    +               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    The `Get-Process` cmdlet gets the list of processes running on the local computer. The Process objects are sent down the pipeline to the `Out-File` cmdlet. `Out-File` uses the FilePath parameter and attempts to write to a file in the current directory named Process.txt . The NoClobber parameter prevents the file from being overwritten and displays a message that the file already exists.
+    ------- Example 3: Send output to a file in ASCII format -------
+    
+    $Procs = Get-Process
+    Out-File -FilePath .\Process.txt -InputObject $Procs -Encoding ASCII -Width 50
+    
+    The `Get-Process` cmdlet gets the list of processes running on the local computer. The Process objects are stored in the variable, `$Procs`. `Out-File` uses the FilePath parameter and creates a file in the current directory named Process.txt . The InputObject parameter passes the process objects in `$Procs` to the file Process.txt . The Encoding parameter converts the output to ASCII format. The Width parameter limits each line in the file to 50 characters so some data might be truncated.
+    ----- Example 4: Use a provider and send output to a file -----
+    
+    PS> Set-Location -Path Alias:
+    
+    PS> Get-Location
+    
+    Path
+    ----
+    Alias:\
+    
+    PS> Get-ChildItem | Out-File -FilePath C:\TestDir\AliasNames.txt
+    
+    PS> Get-Content -Path C:\TestDir\AliasNames.txt
+    
+    CommandType     Name
+    -----------     ----
+    Alias           % -> ForEach-Object
+    Alias           ? -> Where-Object
+    Alias           ac -> Add-Content
+    Alias           cat -> Get-Content
+    
+    The `Set-Location` command uses the Path parameter to set the current location to the registry provider `Alias:`. The `Get-Location` cmdlet displays the complete path for `Alias:`. `Get-ChildItem` sends objects down the pipeline to the `Out-File` cmdlet. `Out-File` uses the FilePath parameter to specify the complete path and filename for the output, C:\TestDir\AliasNames.txt . The `Get-Content` cmdlet uses the Path parameter and displays the file's content in the PowerShell console.
+    ------ Example 5: Set file output width for entire scope ------
+    
+    function DemoDefaultOutFileWidth() {
+        try {
+            $PSDefaultParameterValues['out-file:width'] = 2000
+    
+            $logFile = "$pwd\logfile.txt"
+    
+            Get-ChildItem Env:\ > $logFile
+    
+            Get-Service -ErrorAction Ignore |
+                Format-Table -AutoSize |
+                Out-File $logFile -Append
+    
+            Get-Process | Format-Table Id,SI,Name,Path,MainWindowTitle >> $logFile
+        }
+        finally {
+            $PSDefaultParameterValues.Remove('out-file:width')
+        }
+    }
+    
+    DemoDefaultOutFileWidth
+    
+    For more information about `$PSDefaultParameterValues`, see about_Preference_Variables (../Microsoft.Powershell.Core/About/about_preference_variables.md#psdefaultparametervalues).
+
+
